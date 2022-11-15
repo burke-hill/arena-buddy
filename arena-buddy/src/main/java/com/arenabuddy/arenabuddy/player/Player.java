@@ -1,66 +1,90 @@
 package com.arenabuddy.arenabuddy.player;
 
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "players")
 public class Player {
 
-    final private int rank;
-    final private int rating;
-    final private String name;
-    final private int level;
-    final private String spec;
-    final private String wowClass;
-    final private String realm;
+    @Id
+    private String player_name;
+    private int player_rank;
+    private int player_rating;
+    private int player_level;
+    private String player_spec;
+    private String player_wowclass;
+    private String player_realm;
 
     // player object constructor
-    public Player(int rank, int rating, String name, int level, String spec, String wowClass, String realm) {
-        this.rank = rank;
-        this.rating = rating;
-        this.name = name;
-        this.level = level;
-        this.spec = spec;
-        this.wowClass = wowClass;
-        this.realm = realm;
+
+    public String getPlayer_name() {
+        return player_name;
     }
 
-
-
-    public int getRank() {
-        return this.rank;
+    public int getPlayer_rank() {
+        return player_rank;
     }
 
-    public int getRating() {
-        return this.rating;
+    public int getPlayer_rating() {
+        return player_rating;
     }
 
-    public String getName() {
-        return this.name;
+    public int getPlayer_level() {
+        return player_level;
     }
 
-    public int getLevel() {
-        return this.level;
+    public String getPlayer_spec() {
+        return player_spec;
     }
 
-    public String getSpec() {
-        return this.spec;
+    public String getPlayer_wowclass() {
+        return player_wowclass;
     }
 
-    public String getWowClass() {
-        return this.wowClass;
+    public String getPlayer_realm() {
+        return player_realm;
     }
 
-    public String getRealm() {
-        return this.realm;
+    public void setPlayer_name(String player_name) {
+        this.player_name = player_name;
+    }
+
+    public void setPlayer_rank(int player_rank) {
+        this.player_rank = player_rank;
+    }
+
+    public void setPlayer_rating(int player_rating) {
+        this.player_rating = player_rating;
+    }
+
+    public void setPlayer_level(int player_level) {
+        this.player_level = player_level;
+    }
+
+    public void setPlayer_spec(String player_spec) {
+        this.player_spec = player_spec;
+    }
+
+    public void setPlayer_wowclass(String player_wowclass) {
+        this.player_wowclass = player_wowclass;
+    }
+
+    public void setPlayer_realm(String player_realm) {
+        this.player_realm = player_realm;
     }
 
     @Override
     public String toString() {
         return "Player{" +
-                "rank=" + rank +
-                ", rating=" + rating +
-                ", name='" + name + '\'' +
-                ", level=" + level +
-                ", spec='" + spec + '\'' +
-                ", wowClass='" + wowClass + '\'' +
-                ", realm='" + realm + '\'' +
+                "rank=" + player_rank +
+                ", rating=" + player_rating +
+                ", name='" + player_name + '\'' +
+                ", level=" + player_level +
+                ", spec='" + player_spec + '\'' +
+                ", wowClass='" + player_wowclass + '\'' +
+                ", realm='" + player_realm + '\'' +
                 '}';
     }
 }

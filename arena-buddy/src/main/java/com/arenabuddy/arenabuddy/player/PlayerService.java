@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public class PlayerService {
 
-    public List<Player> getPlayers() {
+    /*public List<Player> getPlayers() {
         return List.of(
                 new Player(
                         1,
@@ -20,5 +20,5 @@ public class PlayerService {
                         "Area 52"
                 )
         );
-    }
+    }*/
 }
