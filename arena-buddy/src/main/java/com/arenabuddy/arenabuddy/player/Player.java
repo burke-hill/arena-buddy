@@ -1,14 +1,14 @@
-package com.chuckbuckney.arenabuddy.model;
+package com.arenabuddy.arenabuddy.player;
 
 public class Player {
 
-    private final int rank;
-    private final int rating;
-    private final String name;
-    private final int level;
-    private final String spec;
-    private final String wowClass;
-    private final String realm;
+    final private int rank;
+    final private int rating;
+    final private String name;
+    final private int level;
+    final private String spec;
+    final private String wowClass;
+    final private String realm;
 
     // player object constructor
     public Player(int rank, int rating, String name, int level, String spec, String wowClass, String realm) {
@@ -51,5 +51,16 @@ public class Player {
         return this.realm;
     }
 
-
+    @Override
+    public String toString() {
+        return "Player{" +
+                "rank=" + rank +
+                ", rating=" + rating +
+                ", name='" + name + '\'' +
+                ", level=" + level +
+                ", spec='" + spec + '\'' +
+                ", wowClass='" + wowClass + '\'' +
+                ", realm='" + realm + '\'' +
+                '}';
+    }
 }
