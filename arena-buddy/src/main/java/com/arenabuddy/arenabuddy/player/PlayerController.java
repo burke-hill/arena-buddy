@@ -31,4 +31,9 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
+    @GetMapping(path="/load")
+    public @ResponseBody void test() throws IOException {
+        playerService.loadLadderData();
+    }
+
 }

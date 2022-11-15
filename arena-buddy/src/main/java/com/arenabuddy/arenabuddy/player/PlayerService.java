@@ -40,14 +40,6 @@ public class PlayerService {
         final String url = "https://worldofwarcraft.com/en-us/game/pvp/leaderboards/3v3";
 
 
-
-
-
-
-
-        // Add columns
-
-
         int numPlayers = 0;
         try {
             // get raw html document
