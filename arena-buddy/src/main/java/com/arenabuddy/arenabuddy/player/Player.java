@@ -17,7 +17,8 @@ public class Player {
     private String player_wowclass;
     private String player_realm;
 
-    // player object constructor
+
+// player object constructor
 
     public String getPlayer_name() {
         return player_name;

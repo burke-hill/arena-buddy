@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.io.IOException;
 import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "/arenaladder")
+@RequestMapping(path = "/api")
 public class PlayerController {
 
     private final PlayerService playerService;
@@ -24,8 +25,9 @@ public class PlayerController {
     }
 
     @GetMapping(path="/all")
-    public @ResponseBody Iterable<Player> getAllPlayers() {
+    public @ResponseBody Iterable<Player> getAllPlayers() throws IOException {
         // This returns a JSON or XML with the users
+        playerService.loadLadderData();
         return playerService.getAllPlayers();
     }
 
