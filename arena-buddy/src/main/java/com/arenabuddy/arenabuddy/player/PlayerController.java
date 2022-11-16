@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/player")
 public class PlayerController {
 
     private final PlayerService playerService;
