@@ -18,9 +18,12 @@ export class AppComponent implements OnInit {
   public players: Player[] = [];
   public player_classes: String[] = [];
   public classMap = new Map();
+  public specMap = new Map();
   public averageRating = 0;
   public topClassNum = 0;
   public topClassName = "";
+  public topSpecName = "";
+  public rankOneName = "";
 
   constructor(private playerService: PlayerService) { }
 
@@ -89,14 +92,17 @@ export class AppComponent implements OnInit {
 
   initClasses() {
 
-    let tempMap = new Map();
+    let curSpec: String[] = [];
     let curNum = 0;
     let i = 0;
+    let topSpecNum = 0;
     this.players.forEach((curClass) => {
       this.player_classes.push(curClass.player_wowclass);
+      curSpec.push(curClass.player_spec);
       this.averageRating += curClass.player_rating;
     })
 
+    // make hashmap of number of classes
     this.player_classes.forEach((curIndex) => {
       if(!this.classMap.has(curIndex)) {
         this.classMap.set(curIndex,1);
@@ -107,6 +113,18 @@ export class AppComponent implements OnInit {
         curNum = 0;
       }
     })
+
+    // hashmap of player specs
+    curSpec.forEach((curIndex) => {
+      if(!this.specMap.has(curIndex)) {
+        this.specMap.set(curIndex,1);
+      }
+      else {
+        curNum = this.specMap.get(curIndex);
+        this.specMap.set(curIndex, curNum+=1);
+        curNum = 0;
+      }
+    })
     this.averageRating /= 100;
     this.averageRating = Math.floor(this.averageRating);
     this.classMap.forEach((i) => {
@@ -114,9 +132,32 @@ export class AppComponent implements OnInit {
         this.topClassNum = i;
       }
     })
+    this.specMap.forEach((i) => {
+      if(i > topSpecNum) {
+        topSpecNum = i;
+      }
+    })
+
 
     console.log(Array.from(this.classMap.keys()));
 
+    Array.from(this.classMap.keys()).forEach(i => {
+      if (this.classMap.get(i) == this.topClassNum) {
+        this.topClassName = i;
+      }
+    })
+    Array.from(this.specMap.keys()).forEach(i => {
+      if (this.specMap.get(i) == topSpecNum) {
+        this.topSpecName = i;
+      }
+    })
+
+    this.players.forEach(i => {
+      if (i.player_rank == 1) {
+        this.rankOneName = i.player_name;
+      }
+    })
+    console.log(this.players);
     this.RenderChart();
     }
 
