@@ -18,12 +18,6 @@ public class PlayerController {
         this.playerService = playerService;
     }
 
-    @PostMapping(path="/add") // Map ONLY POST Requests
-    public @ResponseBody String addNewPlayer (@RequestBody Player player_request) {
-        playerService.addPlayer(player_request);
-        return "Saved";
-    }
-
     @GetMapping(path="/all")
     public @ResponseBody Iterable<Player> getAllPlayers() throws IOException {
         // This returns a JSON or XML with the users
@@ -34,6 +28,11 @@ public class PlayerController {
     @GetMapping(path="/load")
     public @ResponseBody void test() throws IOException {
         playerService.loadLadderData();
+    }
+
+    @GetMapping(path="/{player_name}")
+    public @ResponseBody Player getPlayer(@PathVariable("player_name") String player_name) {
+        return playerService.getPlayer(player_name);
     }
 
 }

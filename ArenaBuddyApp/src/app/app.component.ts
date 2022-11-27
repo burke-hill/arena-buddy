@@ -75,6 +75,7 @@ export class AppComponent implements OnInit {
 
       },
       options: {
+        maintainAspectRatio: false,
         plugins: {
           legend: {
              display: false
@@ -157,12 +158,9 @@ export class AppComponent implements OnInit {
         this.rankOneName = i.player_name;
       }
     })
-    console.log(this.players);
+
     this.RenderChart();
     }
-
-
-
 
 }
 

@@ -5,11 +5,10 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -33,6 +32,10 @@ public class PlayerService {
 
     public Iterable<Player> getAllPlayers() {
         return playerRepository.findAll();
+    }
+
+    public Player getPlayer(String player_name) {
+        return playerRepository.findById(player_name).orElse(null);
     }
 
     public void loadLadderData() throws IOException {
