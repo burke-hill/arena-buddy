@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Player } from './player';
+import { NgModule } from '@angular/core';
+import { Router } from '@angular/router';
 import { PlayerService } from './player.service';
 import { Chart, registerables, Colors } from 'chart.js';
 Chart.register(...registerables);
@@ -25,10 +27,14 @@ export class AppComponent implements OnInit {
   public topSpecName = "";
   public rankOneName = "";
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private playerService: PlayerService, private router: Router) { }
 
   ngOnInit(): void {
       this.getPlayers();
+  }
+
+  public onsubmit(playerName: String) {
+    this.router.navigate([''])
   }
 
   public getPlayers(): void {
