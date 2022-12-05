@@ -16,4 +16,8 @@ export class PlayerService {
   public getPlayers(): Observable<Player[]> {
     return this.http.get<Player[]>(`${this.apiServerUrl}/player/all`)
   }
+
+  public getPlayer(playerName: String): Observable<Player> {
+    return this.http.get<Player>(`${this.apiServerUrl}/player/`+playerName);
+  }
 }

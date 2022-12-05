@@ -10,7 +10,7 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
+ :root {
   --blue: #4e73df;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -66,7 +66,7 @@ body {
   line-height: 1.5;
   color: #858796;
   text-align: left;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.322);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
